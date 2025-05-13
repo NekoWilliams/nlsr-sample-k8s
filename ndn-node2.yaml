@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
         - name: ndn-node2
-          image: hydrokhoos/ndn-all:arm
+          image: hydrokhoos/ndn-all:latest
           tty: true
           env:
             - name: NEIGHBORS
