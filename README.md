@@ -1,6 +1,7 @@
 # nlsr-sample-k8s
 
 ## Overview
+This is a modification of the contents of https://github.com/hydrokhoos/nlsr-sample-k8s to allow for experimentation in my environment. Below is a description of the original:
 This repository provides a sample Kubernetes (K8s) deployment script for Named Data Networking (NDN) using NDN Link State Routing Protocol (NLSR).
 
 ![nlsr-sample-k8s.png](nlsr-sample-k8s.png)
