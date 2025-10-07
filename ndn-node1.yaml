@@ -29,7 +29,8 @@ spec:
     spec:
       containers:
         - name: ndn-node1
-          image: hydrokhoos/ndn-all:latest
+          image: ndn-all-test:latest
+          imagePullPolicy: Never
           tty: true
           env:
             - name: NEIGHBORS
@@ -38,3 +39,17 @@ spec:
             - containerPort: 6363
           securityContext:
             privileged: true
+          volumeMounts:
+            - mountPath: /var/log/sidecar
+              name: sidecar-logs
+            - mountPath: /root/.ndn
+              name: ndn-keys-storage
+      volumes:
+        - name: sidecar-logs
+          hostPath:
+            path: /mnt/sidecar-logs
+            type: DirectoryOrCreate
+        - name: ndn-keys-storage
+          hostPath:
+            path: /data/ndn-node1-keys 
+            type: DirectoryOrCreate
