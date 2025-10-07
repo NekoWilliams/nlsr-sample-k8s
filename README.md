@@ -40,7 +40,7 @@ Routing Table:
 ## Provide Content
 1. Create content (e.g. /sample.txt)
 ```bash
-kubectl exec deployment/ndn-node1 -- /bin/bash -c "echo 'Hello, world!' > /sample.txt"
+kubectl exec deployment/ndn-node1 -- /bin/bash -c "echo 'Hello, world' > /sample.txt"
 ```
 
 2. Advertise content using NLSR
