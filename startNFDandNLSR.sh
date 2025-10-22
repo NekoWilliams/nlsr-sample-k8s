@@ -2,9 +2,24 @@
 
 # NLSR Log Level Configuration
 # Set NLSR_LOG_LEVEL environment variable to change log level
+# Or pass it as the first script argument (e.g., ./startNFDandNLSR.sh DEBUG)
 # Available levels: FATAL, ERROR, WARN, INFO, DEBUG, TRACE
 # Default: INFO
 NLSR_LOG_LEVEL=${NLSR_LOG_LEVEL:-INFO}
+
+# Allow runtime override via first positional argument
+if [ -n "$1" ]; then
+  case "$1" in
+    FATAL|ERROR|WARN|INFO|DEBUG|TRACE)
+      NLSR_LOG_LEVEL="$1"
+      ;;
+    *)
+      echo "Invalid NLSR_LOG_LEVEL: $1"
+      echo "Use one of: FATAL ERROR WARN INFO DEBUG TRACE"
+      exit 2
+      ;;
+  esac
+fi
 
 echo "NLSR Log Level: $NLSR_LOG_LEVEL"
 
